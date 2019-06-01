@@ -1,0 +1,2 @@
+# algojs
+Algorithms from LeetCode
