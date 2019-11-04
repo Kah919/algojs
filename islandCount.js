@@ -28,37 +28,49 @@
 // [output] integer
 
 function getNumberOfIslands(binaryMatrix) {
-    // your code goes here
+  // your code goes here
+  
+  let result = 0
+  
+  const dfs = (row, col) => {
+    if(binaryMatrix[row][col] == 0) return
     
-    let result = 0
-    function dfs(row, col) {
-      if(binaryMatrix[row][col] == 0) return // break case
-      
-      binaryMatrix[row][col] = 0 // turn the number to a 0
-      
-      if(row + 1 < binaryMatrix.length && binaryMatrix[row + 1][col] == 1) {
-        dfs(row + 1, col)
-      }
-      if(row -1 >= 0 && binaryMatrix[row -1][col] == 1) {
-        dfs(row - 1, col)
-      }
-      if(col + 1 < binaryMatrix[row].length && binaryMatrix[row][col + 1] == 1) {
-        dfs(row, col + 1)
-      }
-      if(col - 1 >= 0 && binaryMatrix[row][col - 1] == 1) {
-        dfs(row, col - 1)
-      }
+    binaryMatrix[row][col] = 0
+    // check if the row and column is within bounds
+    // check if the current position is a 1, if it is then run dfs 
+    if(row + 1 < binaryMatrix.length && binaryMatrix[row + 1][col] == 1) {
+      dfs(row + 1, col) 
+      // check if row is within the length of binary matrix
+      // check if our next row at the same column is a 1
     }
-    
-    for(let i = 0; i < binaryMatrix.length; i++) { // this is the row
-      for(let j = 0; j < binaryMatrix[i].length; j++) { // this is the column
-        if(binaryMatrix[i][j] === 1) {
-          dfs(i, j)
-          result += 1
-        }
-      }
+    if(row -1 >= 0 && binaryMatrix[row -1][col] == 1) {
+      dfs(row - 1, col)
+      // check if our row subtracted by 1 is within the matrix
+      // check if our row subtracted by 1 and same column is a 1
     }
-    
-    return result
+    if(col + 1 < binaryMatrix[row].length && binaryMatrix[row][col + 1] == 1) {
+      dfs(row, col + 1)
+      // check if our column plus one is within the matrix
+      // check if our current row at column + 1 is a 1
+    }
+    if(col - 1 >= 0 && binaryMatrix[row][col - 1] == 1) {
+      dfs(row, col - 1)
+      // check if our current column - 1 is within our matrix
+      // check if our current row and column - 1 is a 1
+    }
   }
+  
+  for(let i = 0; i < binaryMatrix.length; i++) {
+    for(let j = 0; j < binaryMatrix[i].length; j++) {
+      if(binaryMatrix[i][j] === 1) {
+        dfs(i, j)
+        result += 1
+      }
+    }
+  }
+  
+  return result
+}
+
+//console.log(getNumberOfIslands(binaryMatrix))
   
