@@ -35,3 +35,16 @@ var isPowerOfTwo = function(n) {
 
 // Runtime: 92 ms, faster than 62.16% of JavaScript online submissions for Power of Two.
 // Memory Usage: 38.3 MB, less than 25.42% of JavaScript online submissions for Power of Two.
+
+
+// var isPowerOfTwo = function(n) {
+//     let count = 1;
+        
+//     while(count < n) {
+//         count *= 2
+//     }
+
+//     return count === n
+// };
+
+// cleaner version
