@@ -55,3 +55,23 @@ var rightSideView = function(root) {
 
 // Runtime: 80 ms, faster than 64.69% of JavaScript online submissions for Binary Tree Right Side View.
 // Memory Usage: 39 MB, less than 5.14% of JavaScript online submissions for Binary Tree Right Side View.
+
+// Cleaner solution with arry indecies
+
+var rightSideView = function(root) {
+    const result = []
+
+    const recursion = (node, depth) => {
+        if(!node) return
+
+        if(!result[depth]) {
+            result[depth] = node.val
+        }
+
+        recursion(node.right, depth + 1)
+        recursion(node.left, depth + 1)
+    }
+
+    recursion(root, 0)
+    return result
+};
