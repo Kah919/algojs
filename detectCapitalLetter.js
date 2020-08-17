@@ -47,3 +47,6 @@ const isCapital = word => {
 // if the first letter is not capital none of it is capital
 // if the first two letter is capital everything should be capital
 // if only the first letter is capital none of the others should be capital
+
+// Runtime: 80 ms, faster than 86.41% of JavaScript online submissions for Detect Capital.
+// Memory Usage: 37.4 MB, less than 43.04% of JavaScript online submissions for Detect Capital.
