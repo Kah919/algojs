@@ -31,3 +31,23 @@ var findRepeatedDnaSequences = function(s) {
 
 // Runtime: 176 ms, faster than 20.11% of JavaScript online submissions for Repeated DNA Sequences.
 // Memory Usage: 58.8 MB, less than 12.28% of JavaScript online submissions for Repeated DNA Sequences.
+
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var findRepeatedDnaSequences = function(s) {
+    const result = []
+    if(s.length <= 10) return result
+    const obj = {}
+    
+    for(let i = 0; i <= s.length - 10; i++) {
+        const curr = s.slice(i, i + 10)
+        obj[curr] = obj[curr] + 1 || 1
+        
+        if(obj[curr] === 2) result.push(curr)
+    }
+    
+    return result
+};
+
