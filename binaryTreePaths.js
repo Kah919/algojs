@@ -56,3 +56,42 @@ var binaryTreePaths = function(root) {
 
 // Runtime: 68 ms, faster than 95.71% of JavaScript online submissions for Binary Tree Paths.
 // Memory Usage: 39 MB, less than 5.38% of JavaScript online submissions for Binary Tree Paths.
+
+// Second solutin refactored
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {string[]}
+ */
+var binaryTreePaths = function(root) {
+    const result = []
+    if(!root) return result
+
+    const recursion = (node, str) => {
+        str += node.val
+        
+        if(!node.left && !node.right) {
+            result.push(str)
+        }
+        
+        if(node.left) {
+            recursion(node.left, str + "->")
+        }
+        
+        if(node.right) {
+            recursion(node.right, str + "->")
+        }
+    }
+    
+    recursion(root, "")
+    
+    return result
+};
