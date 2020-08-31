@@ -37,13 +37,15 @@
 const meetings = ([
     { startTime: 0,  endTime: 6 },
     { startTime: 3,  endTime: 5 },
-    { startTime: 4,  endTime: 8 },
     { startTime: 10, endTime: 12 },
+    { startTime: 4,  endTime: 8 },
     { startTime: 9,  endTime: 10 },
   ])
 
 function mergeRanges(meetings) {
     // Merge meetings ranges
+    meetings.sort((a, b) => a.startTime - b.startTime)
+
     const newArr = [meetings[0]]
 
     for(let i = 1; i < meetings.length; i++) {
