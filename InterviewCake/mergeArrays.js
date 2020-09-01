@@ -9,33 +9,58 @@
 const myArray = [3, 4, 6, 10, 11, 15];
 const alicesArray = [1, 5, 8, 12, 14, 19];
 
+// const mergeArrays = (myArray, alicesArray) => {
+//     const merged = []
+//     let a = 0
+//     let b = 0
+
+//     while(a !== myArray.length && b !== alicesArray.length) {
+//         if(myArray[a] < alicesArray[b]) {
+//             merged.push(myArray[a])
+//             a++
+//         } else {
+//             merged.push(alicesArray[b])
+//             b++
+//         }
+//     }
+
+//     if(a !== myArray.length) {
+//         for(let i = a; i < myArray.length; i++) {
+//             merged.push(myArray[a])
+//             a++
+//         }
+//     } 
+
+//     if(b !== alicesArray.length) {
+//         for(let i = b; i < alicesArray.length; i++) {
+//             merged.push(alicesArray[b])
+//             b++
+//         }
+//     }
+
+//     return merged
+// }
+
 const mergeArrays = (myArray, alicesArray) => {
     const merged = []
+
     let a = 0
     let b = 0
+    let c = 0
 
-    while(a !== myArray.length && b !== alicesArray.length) {
-        if(myArray[a] < alicesArray[b]) {
-            merged.push(myArray[a])
+    while(c < myArray.length + alicesArray.length) {
+        const exhaustA = a >= myArray.length 
+        const exhaustB = b >= alicesArray.length
+
+        if(!exhaustA && (exhaustB || myArray[a] < alicesArray[b])) {
+            merged[c] = myArray[a]
             a++
         } else {
-            merged.push(alicesArray[b])
+            merged[c] = alicesArray[b]
             b++
         }
-    }
 
-    if(a !== myArray.length) {
-        for(let i = a; i < myArray.length; i++) {
-            merged.push(myArray[a])
-            a++
-        }
-    } 
-
-    if(b !== alicesArray.length) {
-        for(let i = b; i < alicesArray.length; i++) {
-            merged.push(alicesArray[b])
-            b++
-        }
+        c++
     }
 
     return merged
