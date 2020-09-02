@@ -25,4 +25,20 @@ function hasPalindromePermutation(theString) {
     }
   
     return single < 2;
+}
+
+function hasPalindromePermutation(theString) {
+
+    // Check if any permutation of the input is a palindrome
+    const letters = new Set()
+    
+    for(let char of theString) {
+      if(letters.has(char)) {
+        letters.delete(char)
+      } else {
+        letters.add(char)
+      }
+    }
+    
+    return letters.size < 2
   }
