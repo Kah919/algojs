@@ -19,7 +19,7 @@ class WordCloudData {
         } else if(i === inputString.length - 1 && this.isLetter(curr)) {
           const word = inputString.slice(startIdx)
           this.normalize(word)
-        } else if(this.isLetter(curr) || curr === '\'') {
+        } else if(this.isLetter(curr) || curr === '\'' || (curr === '-' && this.isLetter(inputString[i - 1]) && this.isLetter(inputString[i + 1]))) {
           endIdx++
         } else if(!this.isLetter(curr)) {
           const word = inputString.slice(startIdx, endIdx)
@@ -63,8 +63,8 @@ class WordCloudData {
   // const test = new WordCloudData('Strawberry short cake? Yum!')
   // const test2 = new WordCloudData('I like cake')
   // const test3 = new WordCloudData('Chocolate cake for dinner and pound cake for dessert  ')
-  // const test4 = new WordCloudData('Dessert - mille-feuille cake')
+  const test4 = new WordCloudData('Dessert - mille-feuille cake')
   // const test5 = new WordCloudData('Mmm...mmm...decisions...decisions')
-  const test6 = new WordCloudData("Allie's Bakery: Sasha's Cakes")
-  console.log(test6.populateWordsToCounts)
-  console.log(test6.wordsToCounts)
+  // const test6 = new WordCloudData("Allie's Bakery: Sasha's Cakes")
+  console.log(test4.populateWordsToCounts)
+  console.log(test4.wordsToCounts)
