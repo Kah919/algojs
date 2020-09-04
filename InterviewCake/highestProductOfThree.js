@@ -2,7 +2,7 @@
 // The input arrayOfInts will always have at least three integers.
 
 function highestProductOf3(arrayOfInts) {
-    if(arrayOfInts.length < 3) throw error()
+    if(arrayOfInts.length < 3) throw new Error("Less than 3")
     let lowest = Math.min(arrayOfInts[0], arrayOfInts[1])
     let highest = Math.max(arrayOfInts[0], arrayOfInts[1])
     
