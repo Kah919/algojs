@@ -38,3 +38,14 @@ function highestProductOf3(arrayOfInts) {
     
     return highestProductOfThree
   }
+
+  console.log(highestProductOf3([1, 2, 3, 4]))
+  console.log(highestProductOf3([6, 1, 3, 5, 7, 8, 2]))
+  console.log(highestProductOf3([-5, 4, 8, 2, 3]))
+  console.log(highestProductOf3([-10, 1, 3, 2, -10]))
+  console.log(highestProductOf3([-5, -1, -3, -2]))
+//   console.log(highestProductOf3([]))
+//   console.log(highestProductOf3([1]))
+//   console.log(highestProductOf3([1, 1]))
+
+  
