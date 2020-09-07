@@ -26,29 +26,26 @@
 function findRotationPoint(words) {
 
     // Find the rotation point in the vector
-    let start = 0
-    let end = words.length - 1
-    
-    while(start < end) {
-      let distance = end - start
-      let mid = start + Math.floor(distance / 2)
-      let curr = words[mid]
-    
+      let start = 0
+      let end = words.length - 1
       
-      if(curr < words[mid - 1]) {
-        return mid
-      }
+      while(start < end) {
+        let distance = end - start
+        let mid = start + Math.floor(distance / 2)
+        let curr = words[mid]
       
-      if(curr > words[start] && curr > words[end]) {
-        start = mid + 1
-      } else {
-        end = mid - 1
+        if(curr >= words[start]) {
+          start = mid
+        } else {
+          end = mid
+        }
+        
+        if(start + 1 === end) return end
+        
       }
-    }
+  }
 
-    return start + 1
-}
+console.log(findRotationPoint(['b', 'c', 'd', 'e', 'a']))
+console.log(findRotationPoint(['e', 'a', 'b', 'c', 'd']))
+console.log(findRotationPoint(['d', 'e', 'a', 'b', 'c']))
 
-console.log(findRotationPoint([2, 3, 4, 5, 1]))
-console.log(findRotationPoint([5, 1, 2, 3, 4]))
-console.log(findRotationPoint([4, 5, 1, 2, 3]))
