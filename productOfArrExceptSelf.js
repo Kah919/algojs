@@ -13,25 +13,46 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+// var productExceptSelf = function(nums) {
+//     let left = [1]
+//     let right = [1]
+//     let result = []
+    
+//     for(let i = 0; i < nums.length - 1; i++) {
+//         let product = left[left.length - 1] * nums[i]
+//         left.push(product)
+//     }
+    
+//     for(let i = nums.length - 1; i > 0; i--) {
+//         let product = right[0] * nums[i]
+//         right.unshift(product)
+//     }
+    
+//     for(let i = 0; i < left.length; i++) {
+//         result.push(left[i] * right[i])
+//     }
+    
+//     return result
+// };
+
+// cleaner solution
 var productExceptSelf = function(nums) {
-    let left = [1]
-    let right = [1]
-    let result = []
+    const productArr = []
     
-    for(let i = 0; i < nums.length - 1; i++) {
-        let product = left[left.length - 1] * nums[i]
-        left.push(product)
+    let beforeNum = 1
+    
+    for(let i = 0; i < nums.length; i++) {
+        productArr.push(beforeNum)
+        beforeNum *= nums[i]
     }
     
-    for(let i = nums.length - 1; i > 0; i--) {
-        let product = right[0] * nums[i]
-        right.unshift(product)
+    let afterNum = 1
+    
+    for(let i = nums.length - 1; i >= 0; i--) {
+        productArr[i] *= afterNum
+        afterNum *= nums[i]
     }
     
-    for(let i = 0; i < left.length; i++) {
-        result.push(left[i] * right[i])
-    }
-    
-    return result
+    return productArr
 };
 
